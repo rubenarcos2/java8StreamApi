@@ -1,1 +1,7 @@
 /target/
+.settings
+.classpath
+.gitignore
+.project
+nb-configuration.xml
+pom.xml
