@@ -33,4 +33,28 @@ public class MapCollectionSpec {
 				6);
 		assertThat(mapLength(collection)).hasSameElementsAs(expected);
 	}
+
+	@Test
+	public void mapNamePersonUpperCaseTest() {
+		Person sara = new Person("Sara", 4);
+		Person viktor = new Person("Viktor", 40);
+		Person eva = new Person("Eva", 42);
+		List<Person> collection = asList(sara, eva, viktor);
+		List<String> expect = asList("SARA", "EVA", "VIKTOR");
+		assertThat(mapNamePersonUpperCase(collection)).hasSameElementsAs(expect);
+	}
+
+	@Test
+	public void mapFlatCollection() {
+		List<List<String>> collection = asList(
+				asList("Belgium", "Germany", "Ireland", "Spain", "France", "Italy", "Luxembourg", "Netherlands",
+						"Austria", "Portugal", "Finland", "Greece", "Slovenia", "Cyprus", "Malta", "Slovakia",
+						"Estonia", "Latvia", "Lithuania"),
+				asList("Bulgaria", "Croatia", "Czech", "Denmark", "Hungary", "Poland", "Romania", "Sweden"));
+		List<String> expected = asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech", "Denmark",
+				"Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia",
+				"Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia",
+				"Slovenia", "Spain", "Sweden");
+		assertThat(mapFlat(collection)).hasSameElementsAs(expected);
+	}
 }
